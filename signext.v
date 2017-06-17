@@ -21,8 +21,8 @@
 module signext(
     input [1:0] in,
     output reg [7:0] out,
-	 input Clear,
-	 input Clk
+    input Clear,
+    input Clk
     );
 
 	always @(*) begin

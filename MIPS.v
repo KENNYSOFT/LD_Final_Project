@@ -37,9 +37,8 @@ module MIPS ( Clk_O, Reset, Instruction, PC, LED, LEDten);
 	clkdiv Frequency_Demultiplier(.CLK_IN(~Clk_O), .clr(Reset), .CLK_OUT(Clk));
 	
 	// Program_Counter			
-	programcounter Program_Counter(.PC(PC), .Next_PC(Branch ? Jump_Address : Next_PC), .Clear(Reset), .Clk(~Clk));
-	nextpc Calc_Next(.PC(PC), .Next_PC(Next_PC), .Clear(Reset), .Clk(Clk_O));
-	// TODO: use mux
+	mux MUX1(.Control(Branch), .in0(PC + 1), .in1(Jump_Address), .out(Next_PC), .Clear(Reset), .Clk(Clk_O));
+	programcounter Program_Counter(.PC(PC), .Next_PC(Next_PC), .Clear(Reset), .Clk(~Clk));
 	
 	// Instruction_Memory
 	//IMEM Instruction_Memory(.Instruction(Instruction), .Read_Address(PC));
@@ -49,13 +48,6 @@ module MIPS ( Clk_O, Reset, Instruction, PC, LED, LEDten);
 	
 	// Registers
 	dest Destination(.RegDst(RegDst), .Instruction30(Instruction[3:0]), .Write_Register(Write_Register), .Clear(Reset), .Clk(Clk_O));
-	/*reg[7:0] Write_Data;
-	assign Reg_Write_Data = Write_Data;
-	
-	always @(*) begin
-		if (MemtoReg) Write_Data <= Read_Data;
-		else Write_Data <= ALU_Result;
-	end*/
 	mux MUX2(.Control(MemtoReg), .in0(ALU_Result), .in1(Read_Data), .out(Reg_Write_Data), .Clear(Reset), .Clk(Clk_O));
 	register Register(.RegWrite(RegWrite), .Instruction52(Instruction[5:2]), .Read_Data1(Read_Data1), .Read_Data2(Read_Data2), .Reg_Write_Data(Reg_Write_Data), .Write_Register(Write_Register), .Clear(Reset), .Clk(Clk_O));
 	
@@ -66,14 +58,7 @@ module MIPS ( Clk_O, Reset, Instruction, PC, LED, LEDten);
 	jump Calc_Jump(.PC(PC), .Sign_Extended_Instruction(Sign_Extended_Instruction), .Jump_Address(Jump_Address), .Clear(Reset), .Clk(Clk_O));
 	
 	// ALU					  
-	/*reg[7:0] ALU_SrcB_Reg;
-	assign ALU_SrcB = ALU_SrcB_Reg;
-	
-	always @(*) begin
-		if (ALUSrc) ALU_SrcB_Reg <= Sign_Extended_Instruction;
-		else ALU_SrcB_Reg <= Read_Data2;
-	end*/
-	mux MUX1(.Control(ALUSrc), .in0(Read_Data2), .in1(Sign_Extended_Instruction), .out(ALU_SrcB), .Clear(Reset), .Clk(Clk_O));
+	mux MUX3(.Control(ALUSrc), .in0(Read_Data2), .in1(Sign_Extended_Instruction), .out(ALU_SrcB), .Clear(Reset), .Clk(Clk_O));
 	alu ALU(.ALUOp(ALUOp), .Data1(Read_Data1), .Data2(ALU_SrcB), .ALU_Result(ALU_Result), .Clear(Reset), .Clk(Clk_O));
 	
 	// Data Memory

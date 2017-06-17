@@ -28,8 +28,8 @@ module control(
     output reg MemWrite,
     output reg MemtoReg,
     output reg ALUOp,
-	 input Clear,
-	 input Clk
+    input Clear,
+    input Clk
     );
 
 	always @(*) begin

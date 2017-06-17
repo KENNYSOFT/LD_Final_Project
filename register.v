@@ -23,7 +23,7 @@ module register(
     input [3:0] Instruction52,
     output reg [7:0] Read_Data1,
     output reg [7:0] Read_Data2,
-	 input [7:0] Reg_Write_Data,
+    input [7:0] Reg_Write_Data,
     input [1:0] Write_Register,
     input Clear,
     input Clk

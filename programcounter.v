@@ -30,4 +30,8 @@ module programcounter(
 		else PC <= Next_PC;
 	end
 
+	initial begin
+		PC = 0;
+	end
+
 endmodule
