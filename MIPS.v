@@ -1,7 +1,6 @@
 `timescale 1ns / 1ps
 
 module MIPS ( Clk_O, Reset, Instruction, PC, LED, LEDten, LEDPC, LEDPCten, LEDSC, LEDwrr, LEDs);
-//module MIPS ( Clk_O, Reset, PC, LED, LEDten, LEDPC, LEDPCten, LEDSC, LEDwrr, LEDs);
 	input 		Clk_O, Reset;
 	input [7:0]	Instruction;
 	output[7:0] PC;
@@ -99,7 +98,7 @@ module MIPS ( Clk_O, Reset, Instruction, PC, LED, LEDten, LEDPC, LEDPCten, LEDSC
 	alu ALU(.state(current_state), .ALUOp(ALUOp), .Data1(Read_Data1), .Data2(ALU_SrcB), .ALU_Result(ALU_Result), .Clear(Reset));
 	
 	// Data Memory
-	DMEM Data_Memory ( .Read_Data(Read_Data), .Write_Data(Read_Data2), .Address(ALU_Result), .MemRead(MemRead), .MemWrite(MemWrite), .Clear(Reset), .Clk(Clk_O) );
+	DMEM Data_Memory (.state(current_state), .Read_Data(Read_Data), .Write_Data(Read_Data2), .Address(ALU_Result), .MemRead(MemRead), .MemWrite(MemWrite), .Clear(Reset), .Clk(Clk_O) );
 	
 	// 7-segment decoder for the output
 	decoder7seg LEDoneDecode ( .Binary(Reg_Write_Data[3:0]), .LED(LED) );

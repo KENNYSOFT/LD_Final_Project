@@ -1,6 +1,8 @@
 `timescale 1ns / 1ps
 
-module DMEM ( Read_Data, Write_Data, Address, MemRead, MemWrite, Clear, Clk );
+module DMEM ( state, Read_Data, Write_Data, Address, MemRead, MemWrite, Clear, Clk );
+
+	input[2:0] state;
 
 	output[7:0]	Read_Data;
 	
@@ -47,7 +49,7 @@ module DMEM ( Read_Data, Write_Data, Address, MemRead, MemWrite, Clear, Clk );
 			MemByte[30] <= 8'hf2;
 			MemByte[31] <= 8'hf1;
 		end
-		else if ( MemWrite )
+		else if ( state == 3'd3 && MemWrite )
 		begin
 			MemByte[Address] <= Write_Data;
 		end

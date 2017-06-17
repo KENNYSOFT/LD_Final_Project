@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=/csehome/hm525/Final_Project/MIPS_Test_v.ncd
+OUTFILE=/csehome/hm525/Final_Project/MIPS_Test_v.bit
+FAMILY=Spartan3A and Spartan3AN
+PART=xc3s50an-5tqg144
+WORKINGDIR=/csehome/hm525/Final_Project
+LICENSE=WebPack
+USER_INFO=211016637_0_0_814

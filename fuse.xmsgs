@@ -5,8 +5,5 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
-<msg type="warning" file="HDLCompiler" num="1016" delta="unknown" >"/csehome/hm525/Final_Project/MIPS_TEST.v" Line 15: Port <arg fmt="%s" index="1">LEDten</arg> is not connected to this instance
-</msg>
-
 </messages>
 

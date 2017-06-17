@@ -1,3 +1,43 @@
 xst -intstyle ise -ifn "/csehome/hm525/Final_Project/MIPS_Test_v.xst" -ofn "/csehome/hm525/Final_Project/MIPS_Test_v.syr" 
 xst -intstyle ise -ifn "/csehome/hm525/Final_Project/MIPS_Test_v.xst" -ofn "/csehome/hm525/Final_Project/MIPS_Test_v.syr" 
 xst -intstyle ise -ifn "/csehome/hm525/Final_Project/MIPS_Test_v.xst" -ofn "/csehome/hm525/Final_Project/MIPS_Test_v.syr" 
+xst -intstyle ise -ifn "/csehome/hm525/Final_Project/MIPS_Test_v.xst" -ofn "/csehome/hm525/Final_Project/MIPS_Test_v.syr" 
+xst -intstyle ise -ifn "/csehome/hm525/Final_Project/MIPS_Test_v.xst" -ofn "/csehome/hm525/Final_Project/MIPS_Test_v.syr" 
+xst -intstyle ise -ifn "/csehome/hm525/Final_Project/MIPS_Test_v.xst" -ofn "/csehome/hm525/Final_Project/MIPS_Test_v.syr" 
+xst -intstyle ise -ifn "/csehome/hm525/Final_Project/MIPS_Test_v.xst" -ofn "/csehome/hm525/Final_Project/MIPS_Test_v.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc IMEM.ucf -uc MIPS.ucf -p xc3s50an-tqg144-5 MIPS_Test_v.ngc MIPS_Test_v.ngd  
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc IMEM.ucf -uc MIPS.ucf -p xc3s50an-tqg144-5 MIPS_Test_v.ngc MIPS_Test_v.ngd  
+xst -intstyle ise -ifn "/csehome/hm525/Final_Project/MIPS_Test_v.xst" -ofn "/csehome/hm525/Final_Project/MIPS_Test_v.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc MIPS.ucf -p xc3s50an-tqg144-5 MIPS_Test_v.ngc MIPS_Test_v.ngd  
+map -intstyle ise -p xc3s50an-tqg144-5 -cm area -ir off -pr off -c 100 -o MIPS_Test_v_map.ncd MIPS_Test_v.ngd MIPS_Test_v.pcf 
+par -w -intstyle ise -ol high -t 1 MIPS_Test_v_map.ncd MIPS_Test_v.ncd MIPS_Test_v.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml MIPS_Test_v.twx MIPS_Test_v.ncd -o MIPS_Test_v.twr MIPS_Test_v.pcf -ucf MIPS.ucf 
+bitgen -intstyle ise -f MIPS_Test_v.ut MIPS_Test_v.ncd 
+xst -intstyle ise -ifn "/csehome/hm525/Final_Project/MIPS_Test_v.xst" -ofn "/csehome/hm525/Final_Project/MIPS_Test_v.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc MIPS.ucf -p xc3s50an-tqg144-5 MIPS_Test_v.ngc MIPS_Test_v.ngd  
+map -intstyle ise -p xc3s50an-tqg144-5 -cm area -ir off -pr off -c 100 -o MIPS_Test_v_map.ncd MIPS_Test_v.ngd MIPS_Test_v.pcf 
+par -w -intstyle ise -ol high -t 1 MIPS_Test_v_map.ncd MIPS_Test_v.ncd MIPS_Test_v.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml MIPS_Test_v.twx MIPS_Test_v.ncd -o MIPS_Test_v.twr MIPS_Test_v.pcf -ucf MIPS.ucf 
+bitgen -intstyle ise -f MIPS_Test_v.ut MIPS_Test_v.ncd 
+xst -intstyle ise -ifn "/csehome/hm525/Final_Project/MIPS_Test_v.xst" -ofn "/csehome/hm525/Final_Project/MIPS_Test_v.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc MIPS.ucf -p xc3s50an-tqg144-5 MIPS_Test_v.ngc MIPS_Test_v.ngd  
+map -intstyle ise -p xc3s50an-tqg144-5 -cm area -ir off -pr off -c 100 -o MIPS_Test_v_map.ncd MIPS_Test_v.ngd MIPS_Test_v.pcf 
+par -w -intstyle ise -ol high -t 1 MIPS_Test_v_map.ncd MIPS_Test_v.ncd MIPS_Test_v.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml MIPS_Test_v.twx MIPS_Test_v.ncd -o MIPS_Test_v.twr MIPS_Test_v.pcf -ucf MIPS.ucf 
+bitgen -intstyle ise -f MIPS_Test_v.ut MIPS_Test_v.ncd 
+xst -intstyle ise -ifn "/csehome/hm525/Final_Project/MIPS_Test_v.xst" -ofn "/csehome/hm525/Final_Project/MIPS_Test_v.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc MIPS.ucf -p xc3s50an-tqg144-5 MIPS_Test_v.ngc MIPS_Test_v.ngd  
+map -intstyle ise -p xc3s50an-tqg144-5 -cm area -ir off -pr off -c 100 -o MIPS_Test_v_map.ncd MIPS_Test_v.ngd MIPS_Test_v.pcf 
+par -w -intstyle ise -ol high -t 1 MIPS_Test_v_map.ncd MIPS_Test_v.ncd MIPS_Test_v.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml MIPS_Test_v.twx MIPS_Test_v.ncd -o MIPS_Test_v.twr MIPS_Test_v.pcf -ucf MIPS.ucf 
+bitgen -intstyle ise -f MIPS_Test_v.ut MIPS_Test_v.ncd 
+map -intstyle ise -p xc3s50an-tqg144-5 -cm area -ir off -pr off -c 100 -o MIPS_Test_v_map.ncd MIPS_Test_v.ngd MIPS_Test_v.pcf 
+par -w -intstyle ise -ol high -t 1 MIPS_Test_v_map.ncd MIPS_Test_v.ncd MIPS_Test_v.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml MIPS_Test_v.twx MIPS_Test_v.ncd -o MIPS_Test_v.twr MIPS_Test_v.pcf -ucf MIPS.ucf 
+bitgen -intstyle ise -f MIPS_Test_v.ut MIPS_Test_v.ncd 
+xst -intstyle ise -ifn "/csehome/hm525/Final_Project/MIPS_Test_v.xst" -ofn "/csehome/hm525/Final_Project/MIPS_Test_v.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc MIPS.ucf -p xc3s50an-tqg144-5 MIPS_Test_v.ngc MIPS_Test_v.ngd  
+map -intstyle ise -p xc3s50an-tqg144-5 -cm area -ir off -pr off -c 100 -o MIPS_Test_v_map.ncd MIPS_Test_v.ngd MIPS_Test_v.pcf 
+par -w -intstyle ise -ol high -t 1 MIPS_Test_v_map.ncd MIPS_Test_v.ncd MIPS_Test_v.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml MIPS_Test_v.twx MIPS_Test_v.ncd -o MIPS_Test_v.twr MIPS_Test_v.pcf -ucf MIPS.ucf 
+bitgen -intstyle ise -f MIPS_Test_v.ut MIPS_Test_v.ncd 
