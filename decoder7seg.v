@@ -23,7 +23,7 @@ module decoder7seg(Binary, LED);
 			 8'b1101 : LED_L <= 7'b0100001;   //d
 			 8'b1110 : LED_L <= 7'b0000110;   //E
 			 8'b1111 : LED_L <= 7'b0001110;   //F
-			 default : 		LED_L = 7'b1000000;   //0
+			 default : 		LED_L <= 7'b1000000;   //0
 		 endcase
 	end
 	

@@ -25,9 +25,13 @@ module nextpc(
     input Clk
     );
 
-	always @(posedge Clk or posedge Clear) begin
+	always @(*) begin
 		if (Clear) Next_PC <= 0;
 		else Next_PC <= PC + 1;
+	end
+	
+	initial begin
+		Next_PC = 0;
 	end
 
 endmodule

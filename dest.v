@@ -20,18 +20,22 @@
 //////////////////////////////////////////////////////////////////////////////////
 module dest(
     input RegDst,
-    input [7:0] Instruction,
+    input [3:0] Instruction30,
     output reg [1:0] Write_Register,
     input Clear,
     input Clk
     );
 
-	always @(posedge Clk or posedge Clear) begin
+	always @(*) begin
 		if (Clear) Write_Register <= 0;
 		else begin
-			if (RegDst) Write_Register <= Instruction[1:0];
-			else Write_Register <= Instruction[3:2];
+			if (RegDst) Write_Register <= Instruction30[1:0];
+			else Write_Register <= Instruction30[3:2];
 		end
+	end
+	
+	initial begin
+		Write_Register = 0;
 	end
 
 endmodule

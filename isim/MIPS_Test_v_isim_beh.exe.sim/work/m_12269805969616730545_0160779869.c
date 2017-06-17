@@ -52,7 +52,7 @@ LAB0:    t1 = (t0 + 2840U);
 LAB3:    goto *t2;
 
 LAB2:    xsi_set_current_line(29, ng0);
-    t2 = (t0 + 3160);
+    t2 = (t0 + 3408);
     *((int *)t2) = 1;
     t3 = (t0 + 2872);
     *((char **)t3) = t2;
@@ -96,10 +96,25 @@ LAB6:    xsi_set_current_line(30, ng0);
 
 }
 
+static void Initial_34_1(char *t0)
+{
+    char *t1;
+    char *t2;
+
+LAB0:    xsi_set_current_line(34, ng0);
+
+LAB2:    xsi_set_current_line(35, ng0);
+    t1 = ((char*)((ng1)));
+    t2 = (t0 + 1928);
+    xsi_vlogvar_assign_value(t2, t1, 0, 0, 8);
+
+LAB1:    return;
+}
+
 
 extern void work_m_12269805969616730545_0160779869_init()
 {
-	static char *pe[] = {(void *)Always_29_0};
+	static char *pe[] = {(void *)Always_29_0,(void *)Initial_34_1};
 	xsi_register_didat("work_m_12269805969616730545_0160779869", "isim/MIPS_Test_v_isim_beh.exe.sim/work/m_12269805969616730545_0160779869.didat");
 	xsi_register_executes(pe);
 }

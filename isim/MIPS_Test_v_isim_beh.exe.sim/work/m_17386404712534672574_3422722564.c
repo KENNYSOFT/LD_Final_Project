@@ -168,7 +168,7 @@ LAB40:
 LAB39:    xsi_set_current_line(26, ng0);
     t2 = ((char*)((ng2)));
     t3 = (t0 + 1608);
-    xsi_vlogvar_assign_value(t3, t2, 0, 0, 7);
+    xsi_vlogvar_wait_assign_value(t3, t2, 0, 0, 7, 0LL);
 
 LAB41:    goto LAB2;
 

@@ -19,16 +19,22 @@
 //
 //////////////////////////////////////////////////////////////////////////////////
 module alu(
+    input ALUOp,
     input [7:0] Data1,
     input [7:0] Data2,
-    output reg [7:0] Result,
+    output reg [7:0] ALU_Result,
     input Clear,
     input Clk
     );
 
-	always @(posedge Clk or posedge Clear) begin
-		if (Clear) Result <= 0;
-		else Result <= Data1 + Data2;
+	always @(*) begin
+		if (Clear) ALU_Result <= 0;
+		else if (!ALUOp) ALU_Result <= 0;
+		else ALU_Result <= Data1 + Data2;
+	end
+	
+	initial begin
+		ALU_Result = 0;
 	end
 
 endmodule

@@ -32,16 +32,20 @@ module control(
 	 input Clk
     );
 
-	always @(posedge Clk or posedge Clear) begin
+	always @(*) begin
 		if (Clear) begin RegDst <= 0; RegWrite <= 0; ALUSrc <= 0; Branch <= 0; MemRead <= 0; MemWrite <= 0; MemtoReg <= 0; ALUOp <= 0; end
 		else begin
 			case (in)
 				2'b00: begin RegDst <= 1; RegWrite <= 1; ALUSrc <= 0; Branch <= 0; MemRead <= 0; MemWrite <= 0; MemtoReg <= 0; ALUOp <= 1; end
-				2'b01: begin RegDst <= 0; RegWrite <= 1; ALUSrc <= 1; Branch <= 0; MemRead <= 1; MemWrite <= 0; MemtoReg <= 1; ALUOp <= 0; end
-				2'b10: begin RegWrite <= 0; ALUSrc <= 1; Branch <= 0; MemRead <= 0; MemWrite <= 1; ALUOp <= 0; end
+				2'b01: begin RegDst <= 0; RegWrite <= 1; ALUSrc <= 1; Branch <= 0; MemRead <= 1; MemWrite <= 0; MemtoReg <= 1; ALUOp <= 1/*0*/; end
+				2'b10: begin RegWrite <= 0; ALUSrc <= 1; Branch <= 0; MemRead <= 0; MemWrite <= 1; ALUOp <= 1/*0*/; end
 				2'b11: begin RegWrite <= 0; ALUSrc <= 0; Branch <= 1; MemRead <= 0; MemWrite <= 0; ALUOp <= 0; end
 			endcase
 		end
+	end
+	
+	initial begin
+		RegDst <= 0; RegWrite <= 0; ALUSrc <= 0; Branch <= 0; MemRead <= 0; MemWrite <= 0; MemtoReg <= 0; ALUOp <= 0;
 	end
 
 endmodule

@@ -27,7 +27,7 @@ module clkdiv(
 	 reg [31:0] cnt;
 	 
 	 always @(posedge CLK_IN or posedge clr) begin
-		if(cnt == 32'd100) begin
+		if(cnt == 32'd99) begin
 			cnt <= 0;
 			CLK_OUT <= ~CLK_OUT;
 		end else begin

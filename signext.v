@@ -25,9 +25,13 @@ module signext(
 	 input Clk
     );
 
-	always @(posedge Clk or posedge Clear) begin
+	always @(*) begin
 		if (Clear) out <= 0;
 		else out <= {in[1], in[1], in[1], in[1], in[1], in[1], in};
+	end
+	
+	initial begin
+		out = 0;
 	end
 
 endmodule

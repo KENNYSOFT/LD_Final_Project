@@ -26,9 +26,13 @@ module jump(
     input Clk
     );
 
-	always @(posedge Clk or posedge Clear) begin
+	always @(*) begin
 		if (Clear) Jump_Address <= 0;
 		else Jump_Address <= PC + 1 + Sign_Extended_Instruction;
+	end
+	
+	initial begin
+		Jump_Address = 0;
 	end
 
 endmodule

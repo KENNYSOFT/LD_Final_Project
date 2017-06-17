@@ -1,0 +1,65 @@
+Release 14.7 - xst P.20131013 (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> 
+Parameter TMPDIR set to /csehome/hm525/Final_Project/xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.04 secs
+ 
+--> 
+Parameter xsthdpdir set to /csehome/hm525/Final_Project/xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.04 secs
+ 
+--> 
+WARNING:Xst:3164 - Option "-debug" found multiple times in the command line. Only the first occurence is considered.
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling verilog file "signext.v" in library work
+Compiling verilog file "register.v" in library work
+Module <signext> compiled
+Compiling verilog file "programcounter.v" in library work
+Module <register> compiled
+Compiling verilog file "nextpc.v" in library work
+Module <programcounter> compiled
+Compiling verilog file "jump.v" in library work
+Module <nextpc> compiled
+Compiling verilog file "DMEM.v" in library work
+Module <jump> compiled
+Compiling verilog file "dest.v" in library work
+Module <DMEM> compiled
+Compiling verilog file "decoder7seg.v" in library work
+Module <dest> compiled
+Compiling verilog file "clkdiv.v" in library work
+Module <decoder7seg> compiled
+Compiling verilog file "alu.v" in library work
+Module <clkdiv> compiled
+Compiling verilog file "MIPS.v" in library work
+Module <alu> compiled
+Compiling verilog file "IMEM.v" in library work
+Module <MIPS> compiled
+Compiling verilog file "MIPS_TEST.v" in library work
+Module <IMEM> compiled
+Module <MIPS_Test_v> compiled
+No errors in compilation
+Analysis of file <"MIPS_Test_v.prj"> succeeded.
+ 
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.06 secs
+ 
+--> 
+
+
+Total memory usage is 468912 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :    1 (   0 filtered)
+Number of infos    :    0 (   0 filtered)
+

@@ -39,6 +39,7 @@ module MIPS ( Clk_O, Reset, Instruction, PC, LED, LEDten);
 	// Program_Counter			
 	programcounter Program_Counter(.PC(PC), .Next_PC(Branch ? Jump_Address : Next_PC), .Clear(Reset), .Clk(~Clk));
 	nextpc Calc_Next(.PC(PC), .Next_PC(Next_PC), .Clear(Reset), .Clk(Clk_O));
+	// TODO: use mux
 	
 	// Instruction_Memory
 	//IMEM Instruction_Memory(.Instruction(Instruction), .Read_Address(PC));
@@ -47,58 +48,33 @@ module MIPS ( Clk_O, Reset, Instruction, PC, LED, LEDten);
 	signext Sign_Extension(.in(Instruction[1:0]), .out(Sign_Extended_Instruction), .Clear(Reset), .Clk(Clk_O));
 	
 	// Registers
-	dest Destination(.RegDst(RegDst), .Instruction(Instruction), .Write_Register(Write_Register), .Clear(Reset), .Clk(Clk_O));
-	
-	reg[7:0] Source_Data1;
-	assign Read_Data1 = Source_Data1;
-	
-	reg[7:0] Source_Data2;
-	assign Read_Data2 = Source_Data2;
-	
-	reg[7:0] Write_Data;
+	dest Destination(.RegDst(RegDst), .Instruction30(Instruction[3:0]), .Write_Register(Write_Register), .Clear(Reset), .Clk(Clk_O));
+	/*reg[7:0] Write_Data;
 	assign Reg_Write_Data = Write_Data;
 	
-	reg[7:0]	Registers[3:0];
-	always @(posedge Clk_O or posedge Reset) begin
-		if (Reset) begin Registers[0] <= 0; Registers[1] <= 0; Registers[2] <= 0; Registers[3] <= 0; end
-		else begin
-			Source_Data1 <= Registers[Instruction[5:4]];
-			Source_Data2 <= Registers[Instruction[3:2]];
-			Write_Data <= (MemtoReg ? Read_Data : ALU_Result);
-			if (RegWrite) Registers[Write_Register] <= Write_Data;
-		end
-	end
-	
-	initial begin
-		Source_Data1 <= 0;
-		Source_Data2 <= 0;
-		Write_Data <= 0;
-	end
+	always @(*) begin
+		if (MemtoReg) Write_Data <= Read_Data;
+		else Write_Data <= ALU_Result;
+	end*/
+	mux MUX2(.Control(MemtoReg), .in0(ALU_Result), .in1(Read_Data), .out(Reg_Write_Data), .Clear(Reset), .Clk(Clk_O));
+	register Register(.RegWrite(RegWrite), .Instruction52(Instruction[5:2]), .Read_Data1(Read_Data1), .Read_Data2(Read_Data2), .Reg_Write_Data(Reg_Write_Data), .Write_Register(Write_Register), .Clear(Reset), .Clk(Clk_O));
 	
 	// Control Logic
-	//control Control(.in(Instruction[7:6]), .RegDst(RegDst), .RegWrite(RegWrite), .ALUSrc(ALUSrc), .Branch(Branch), .MemRead(MemRead), .MemWrite(MemWrite), .MemtoReg(MemtoReg), .ALUOp(ALUOp), .Clear(Reset), .Clk(Clk_O));
-	assign RegDst = ~Instruction[6];
-	assign RegWrite = ~Instruction[7];
-	assign ALUSrc = Instruction[7] ^ Instruction[6];
-	assign Branch = Instruction[7] & Instruction[6];
-	assign MemRead = ~Instruction[7] & Instruction[6];
-	assign MemWrite = Instruction[7] & ~Instruction[6];
-	assign MemtoReg = Instruction[6];
-	assign ALUOp = ~Instruction[7] & ~Instruction[6];
+	control Control(.in(Instruction[7:6]), .RegDst(RegDst), .RegWrite(RegWrite), .ALUSrc(ALUSrc), .Branch(Branch), .MemRead(MemRead), .MemWrite(MemWrite), .MemtoReg(MemtoReg), .ALUOp(ALUOp), .Clear(Reset), .Clk(Clk_O));
 	
 	// Jump Address
 	jump Calc_Jump(.PC(PC), .Sign_Extended_Instruction(Sign_Extended_Instruction), .Jump_Address(Jump_Address), .Clear(Reset), .Clk(Clk_O));
 	
 	// ALU					  
-	reg[7:0] ALU_SrcB_Reg;
+	/*reg[7:0] ALU_SrcB_Reg;
 	assign ALU_SrcB = ALU_SrcB_Reg;
 	
 	always @(*) begin
 		if (ALUSrc) ALU_SrcB_Reg <= Sign_Extended_Instruction;
 		else ALU_SrcB_Reg <= Read_Data2;
-	end
-	//alu ALU(.Data1(Read_Data1), .Data2(ALUSrc ? Sign_Extended_Instruction : Read_Data2), .Result(ALU_Result), .Clear(Reset), .Clk(Clk_O));
-	alu ALU(.Data1(Read_Data1), .Data2(ALU_SrcB), .Result(ALU_Result), .Clear(Reset), .Clk(Clk_O));
+	end*/
+	mux MUX1(.Control(ALUSrc), .in0(Read_Data2), .in1(Sign_Extended_Instruction), .out(ALU_SrcB), .Clear(Reset), .Clk(Clk_O));
+	alu ALU(.ALUOp(ALUOp), .Data1(Read_Data1), .Data2(ALU_SrcB), .ALU_Result(ALU_Result), .Clear(Reset), .Clk(Clk_O));
 	
 	// Data Memory
 	DMEM Data_Memory ( .Read_Data(Read_Data), .Write_Data(Read_Data2), .Address(ALU_Result), .MemRead(MemRead), .MemWrite(MemWrite), .Clear(Reset), .Clk(Clk_O) );
@@ -106,5 +82,9 @@ module MIPS ( Clk_O, Reset, Instruction, PC, LED, LEDten);
 	// 7-segment decoder for the output
 	decoder7seg LEDoneDecode ( .Binary(Reg_Write_Data[3:0]), .LED(LED) );
 	decoder7seg LEDtenDecode ( .Binary(Reg_Write_Data[7:4]), .LED(LEDten) );
+	
+	initial begin
+		Write_Data = 0;
+	end
 	
 endmodule

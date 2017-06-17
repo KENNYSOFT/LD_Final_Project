@@ -22,7 +22,7 @@
 #define alloca _alloca
 #endif
 static const char *ng0 = "/csehome/hm525/Final_Project/clkdiv.v";
-static unsigned int ng1[] = {100U, 0U};
+static unsigned int ng1[] = {99U, 0U};
 static int ng2[] = {0, 0};
 static int ng3[] = {1, 0};
 static unsigned int ng4[] = {0U, 0U};
