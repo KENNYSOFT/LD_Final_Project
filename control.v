@@ -28,8 +28,7 @@ module control(
     output reg MemWrite,
     output reg MemtoReg,
     output reg ALUOp,
-    input Clear,
-    input Clk
+    input Clear
     );
 
 	always @(*) begin
@@ -38,14 +37,15 @@ module control(
 			case (in)
 				2'b00: begin RegDst <= 1; RegWrite <= 1; ALUSrc <= 0; Branch <= 0; MemRead <= 0; MemWrite <= 0; MemtoReg <= 0; ALUOp <= 1; end
 				2'b01: begin RegDst <= 0; RegWrite <= 1; ALUSrc <= 1; Branch <= 0; MemRead <= 1; MemWrite <= 0; MemtoReg <= 1; ALUOp <= 1/*0*/; end
-				2'b10: begin RegWrite <= 0; ALUSrc <= 1; Branch <= 0; MemRead <= 0; MemWrite <= 1; ALUOp <= 1/*0*/; end
-				2'b11: begin RegWrite <= 0; ALUSrc <= 0; Branch <= 1; MemRead <= 0; MemWrite <= 0; ALUOp <= 0; end
+				2'b10: begin RegDst <= 1'bx; RegWrite <= 0; ALUSrc <= 1; Branch <= 0; MemRead <= 0; MemWrite <= 1; MemtoReg <= 1'bx; ALUOp <= 1/*0*/; end
+				2'b11: begin RegDst <= 1'bx; RegWrite <= 0; ALUSrc <= 0; Branch <= 1; MemRead <= 0; MemWrite <= 0; MemtoReg <= 1'bx; ALUOp <= 0; end
+				default: begin RegDst <= 0; RegWrite <= 0; ALUSrc <= 0; Branch <= 0; MemRead <= 0; MemWrite <= 0; MemtoReg <= 0; ALUOp <= 0; end
 			endcase
 		end
 	end
 	
 	initial begin
-		RegDst <= 0; RegWrite <= 0; ALUSrc <= 0; Branch <= 0; MemRead <= 0; MemWrite <= 0; MemtoReg <= 0; ALUOp <= 0;
+		RegDst = 0; RegWrite = 0; ALUSrc = 0; Branch = 0; MemRead = 0; MemWrite = 0; MemtoReg = 0; ALUOp = 0;
 	end
 
 endmodule

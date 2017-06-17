@@ -1,0 +1,8 @@
+INTSTYLE=impact
+INFILE=/csehome/hm525/Final_Project/impact.xsl
+OUTFILE=/csehome/hm525/Final_Project/impact.xsl
+FAMILY=Single
+PART=Single
+WORKINGDIR=/csehome/hm525/Final_Project
+LICENSE=iMPACT
+USER_INFO=iMPACT

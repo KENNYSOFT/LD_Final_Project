@@ -25,8 +25,10 @@ module IMEM ( Instruction, Read_Address );
 	assign MemByte[3] = { 2'b10, 2'b00, 2'b10, 2'b01 };
 	// Mem[s0 + 1] = Mem[2] = s2 = 1
 	
-	// j -1
-	assign MemByte[4] = { 2'b11, 4'b0000, 2'b11 };
+	//// j -1
+	//assign MemByte[4] = { 2'b11, 4'b0000, 2'b11 };
+	// j -2
+	assign MemByte[4] = { 2'b11, 4'b0000, 2'b10 };
 			
 	assign Instruction = MemByte[Read_Address];
 

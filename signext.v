@@ -21,13 +21,12 @@
 module signext(
     input [1:0] in,
     output reg [7:0] out,
-    input Clear,
-    input Clk
+    input Clear
     );
 
 	always @(*) begin
 		if (Clear) out <= 0;
-		else out <= {in[1], in[1], in[1], in[1], in[1], in[1], in};
+		else out <= {{6{in[1]}}, in};
 	end
 	
 	initial begin

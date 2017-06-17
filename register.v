@@ -19,6 +19,7 @@
 //
 //////////////////////////////////////////////////////////////////////////////////
 module register(
+    input [2:0] state,
     input RegWrite,
     input [3:0] Instruction52,
     output reg [7:0] Read_Data1,
@@ -29,19 +30,57 @@ module register(
     input Clk
     );
 	
-	reg[7:0]	Registers[3:0];
-	always @(*) begin
-		if (Clear) begin Registers[0] <= 0; Registers[1] <= 0; Registers[2] <= 0; Registers[3] <= 0; end
+	reg[7:0] s0;
+	reg[7:0] s1;
+	reg[7:0] s2;
+	reg[7:0] s3;
+	
+	always @(posedge Clk or posedge Clear) begin
+		if (Clear) begin
+			s0 <= 0;
+			s1 <= 0;
+			s2 <= 0;
+			s3 <= 0;
+			Read_Data1 <= 0;
+			Read_Data2 <= 0;
+		end
 		else begin
-			Read_Data1 <= Registers[Instruction52[3:2]];
-			Read_Data2 <= Registers[Instruction52[1:0]];
-			if (RegWrite) Registers[Write_Register] <= Reg_Write_Data;
+			if (state == 3'd1) begin
+				case (Instruction52[3:2])
+					2'b00: Read_Data1 <= s0;
+					2'b01: Read_Data1 <= s1;
+					2'b10: Read_Data1 <= s2;
+					2'b11: Read_Data1 <= s3;
+					default: Read_Data1 <= 0;
+				endcase
+				case (Instruction52[1:0])
+					2'b00: Read_Data2 <= s0;
+					2'b01: Read_Data2 <= s1;
+					2'b10: Read_Data2 <= s2;
+					2'b11: Read_Data2 <= s3;
+					default: Read_Data2 <= 0;
+				endcase
+			end
+			else if (state == 3'd4) begin
+				if (RegWrite) begin
+					case (Write_Register)
+						2'b00: s0 <= Reg_Write_Data;
+						2'b01: s1 <= Reg_Write_Data;
+						2'b10: s2 <= Reg_Write_Data;
+						2'b11: s3 <= Reg_Write_Data;
+					endcase
+				end
+			end
 		end
 	end
 	
 	initial begin
-		Read_Data1 <= 0;
-		Read_Data2 <= 0;
+		s0 = 0;
+		s1 = 0;
+		s2 = 0;
+		s3 = 0;
+		Read_Data1 = 0;
+		Read_Data2 = 0;
 	end
 
 endmodule

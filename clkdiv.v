@@ -5,7 +5,7 @@
 // 
 // Create Date:    19:19:57 05/17/2017 
 // Design Name: 
-// Module Name:    clkdiv 
+// Module Name:    Clkdiv 
 // Project Name: 
 // Target Devices: 
 // Tool versions: 
@@ -19,31 +19,31 @@
 //
 //////////////////////////////////////////////////////////////////////////////////
 module clkdiv(
-    input CLK_IN,
-    input clr,
-    output reg CLK_OUT
+    input Clk_O,
+    input Clear,
+    output reg Clk
     );
-	 
-	 reg [31:0] cnt;
-	 
-	 always @(posedge CLK_IN or posedge clr) begin
-		if(cnt == 32'd99) begin
+
+	reg [24:0] cnt;
+	
+	always @(negedge Clk_O or posedge Clear) begin
+		if (Clear) begin
 			cnt <= 0;
-			CLK_OUT <= ~CLK_OUT;
-		end else begin
+			Clk <= 0;
+		end
+		//else if (cnt >= 25'd99) begin
+		else if (cnt >= 25'd24999999) begin
+			cnt <= 0;
+			Clk <= ~Clk;
+		end
+		else begin
 			cnt <= cnt + 1;
 		end
-		if(clr) begin
-			cnt <= 32'd0;
-			CLK_OUT <= 1'b0;
-		end
-		
-	 end
-	 
-	 initial begin
-		CLK_OUT = 0;
+	end
+	
+	initial begin
 		cnt = 0;
-	 end
-
+		Clk = 0;
+	end
 
 endmodule

@@ -1,0 +1,192 @@
+--------------------------------------------------------------------------------
+Release 14.7 Trace  (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+/opt/Xilinx/14.7/ISE_DS/ISE/bin/lin64/unwrapped/trce -intstyle ise -v 3 -s 5 -n
+3 -fastpaths -xml MIPS.twx MIPS.ncd -o MIPS.twr MIPS.pcf -ucf MIPS.ucf
+
+Design file:              MIPS.ncd
+Physical constraint file: MIPS.pcf
+Device,package,speed:     xc3s50an,tqg144,-5 (PRODUCTION 1.42 2013-10-13)
+Report level:             verbose report
+
+Environment Variable      Effect 
+--------------------      ------ 
+NONE                      No environment variables were set
+--------------------------------------------------------------------------------
+
+INFO:Timing:2698 - No timing constraints found, doing default enumeration.
+INFO:Timing:3412 - To improve timing, see the Timing Closure User Guide (UG612).
+INFO:Timing:2752 - To get complete path coverage, use the unconstrained paths 
+   option. All paths that are not constrained will be reported in the 
+   unconstrained paths section(s) of the report.
+INFO:Timing:3339 - The clock-to-out numbers in this timing report are based on 
+   a 50 Ohm transmission line loading model.  For the details of this model, 
+   and for more information on accounting for different loading conditions, 
+   please see the device datasheet.
+INFO:Timing:3390 - This architecture does not support a default System Jitter 
+   value, please add SYSTEM_JITTER constraint to the UCF to modify the Clock 
+   Uncertainty calculation.
+INFO:Timing:3389 - This architecture does not support 'Discrete Jitter' and 
+   'Phase Error' calculations, these terms will be zero in the Clock 
+   Uncertainty calculation.  Please make appropriate modification to 
+   SYSTEM_JITTER to account for the unsupported Discrete Jitter and Phase 
+   Error.
+
+
+
+Data Sheet report:
+-----------------
+All values displayed in nanoseconds (ns)
+
+Setup/Hold to clock Clk_O
+--------------+------------+------------+------------------+--------+
+              |Max Setup to|Max Hold to |                  | Clock  |
+Source        | clk (edge) | clk (edge) |Internal Clock(s) | Phase  |
+--------------+------------+------------+------------------+--------+
+Instruction<0>|    3.807(R)|   -1.845(R)|Clk_O_BUFGP       |   0.000|
+Instruction<1>|    4.202(R)|   -1.764(R)|Clk_O_BUFGP       |   0.000|
+Instruction<2>|    3.554(R)|   -0.160(R)|Clk_O_BUFGP       |   0.000|
+Instruction<3>|    4.235(R)|   -0.241(R)|Clk_O_BUFGP       |   0.000|
+Instruction<4>|    1.711(R)|   -0.197(R)|Clk_O_BUFGP       |   0.000|
+Instruction<5>|    1.758(R)|   -0.279(R)|Clk_O_BUFGP       |   0.000|
+Instruction<6>|    7.217(R)|   -0.242(R)|Clk_O_BUFGP       |   0.000|
+Instruction<7>|    6.756(R)|   -0.332(R)|Clk_O_BUFGP       |   0.000|
+Reset         |    8.001(R)|   -1.202(R)|Clk_O_BUFGP       |   0.000|
+--------------+------------+------------+------------------+--------+
+
+Clock Clk_O to Pad
+------------+------------+------------------+--------+
+            | clk (edge) |                  | Clock  |
+Destination |   to PAD   |Internal Clock(s) | Phase  |
+------------+------------+------------------+--------+
+LED<0>      |   12.491(R)|Clk_O_BUFGP       |   0.000|
+LED<1>      |   13.300(R)|Clk_O_BUFGP       |   0.000|
+LED<2>      |   12.802(R)|Clk_O_BUFGP       |   0.000|
+LED<3>      |   12.252(R)|Clk_O_BUFGP       |   0.000|
+LED<4>      |   12.095(R)|Clk_O_BUFGP       |   0.000|
+LED<5>      |   12.761(R)|Clk_O_BUFGP       |   0.000|
+LED<6>      |   13.289(R)|Clk_O_BUFGP       |   0.000|
+LEDten<0>   |   13.773(R)|Clk_O_BUFGP       |   0.000|
+LEDten<1>   |   13.532(R)|Clk_O_BUFGP       |   0.000|
+LEDten<2>   |   13.526(R)|Clk_O_BUFGP       |   0.000|
+LEDten<3>   |   13.784(R)|Clk_O_BUFGP       |   0.000|
+LEDten<4>   |   12.835(R)|Clk_O_BUFGP       |   0.000|
+LEDten<5>   |   13.536(R)|Clk_O_BUFGP       |   0.000|
+LEDten<6>   |   13.959(R)|Clk_O_BUFGP       |   0.000|
+------------+------------+------------------+--------+
+
+Clock to Setup on destination clock Clk_O
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+Clk_O          |    6.876|    3.931|         |    7.059|
+---------------+---------+---------+---------+---------+
+
+Pad to Pad
+---------------+---------------+---------+
+Source Pad     |Destination Pad|  Delay  |
+---------------+---------------+---------+
+Instruction<0> |LEDwrr<0>      |    8.758|
+Instruction<0> |LEDwrr<2>      |    8.816|
+Instruction<0> |LEDwrr<3>      |    8.311|
+Instruction<0> |LEDwrr<4>      |    7.884|
+Instruction<0> |LEDwrr<5>      |    8.182|
+Instruction<1> |LEDwrr<0>      |    9.084|
+Instruction<1> |LEDwrr<2>      |    8.702|
+Instruction<1> |LEDwrr<3>      |    8.637|
+Instruction<1> |LEDwrr<5>      |    8.046|
+Instruction<1> |LEDwrr<6>      |    7.468|
+Instruction<2> |LEDwrr<0>      |    9.719|
+Instruction<2> |LEDwrr<2>      |    9.683|
+Instruction<2> |LEDwrr<3>      |    9.272|
+Instruction<2> |LEDwrr<4>      |    7.734|
+Instruction<2> |LEDwrr<5>      |    9.395|
+Instruction<3> |LEDwrr<0>      |    8.982|
+Instruction<3> |LEDwrr<2>      |    8.946|
+Instruction<3> |LEDwrr<3>      |    8.535|
+Instruction<3> |LEDwrr<5>      |    8.680|
+Instruction<3> |LEDwrr<6>      |    7.501|
+Instruction<6> |LED<0>         |    8.934|
+Instruction<6> |LED<1>         |    9.576|
+Instruction<6> |LED<2>         |    9.078|
+Instruction<6> |LED<3>         |    8.695|
+Instruction<6> |LED<4>         |    8.601|
+Instruction<6> |LED<5>         |    9.037|
+Instruction<6> |LED<6>         |    9.565|
+Instruction<6> |LEDs<0>        |    7.209|
+Instruction<6> |LEDs<1>        |    7.662|
+Instruction<6> |LEDs<2>        |    7.412|
+Instruction<6> |LEDs<3>        |    7.365|
+Instruction<6> |LEDten<0>      |   10.441|
+Instruction<6> |LEDten<1>      |   10.200|
+Instruction<6> |LEDten<2>      |   10.194|
+Instruction<6> |LEDten<3>      |   10.452|
+Instruction<6> |LEDten<4>      |    9.296|
+Instruction<6> |LEDten<5>      |   10.204|
+Instruction<6> |LEDten<6>      |   10.627|
+Instruction<6> |LEDwrr<0>      |    7.966|
+Instruction<6> |LEDwrr<2>      |    8.217|
+Instruction<6> |LEDwrr<3>      |    7.519|
+Instruction<6> |LEDwrr<4>      |    8.391|
+Instruction<6> |LEDwrr<5>      |    7.818|
+Instruction<6> |LEDwrr<6>      |    7.914|
+Instruction<7> |LED<0>         |    9.410|
+Instruction<7> |LED<1>         |    9.673|
+Instruction<7> |LED<2>         |    9.175|
+Instruction<7> |LED<3>         |    9.171|
+Instruction<7> |LED<4>         |    8.769|
+Instruction<7> |LED<5>         |    9.134|
+Instruction<7> |LED<6>         |    9.662|
+Instruction<7> |LEDs<0>        |    7.785|
+Instruction<7> |LEDs<1>        |    8.387|
+Instruction<7> |LEDs<2>        |    7.985|
+Instruction<7> |LEDs<3>        |    8.124|
+Instruction<7> |LEDten<0>      |    9.828|
+Instruction<7> |LEDten<1>      |    9.584|
+Instruction<7> |LEDten<2>      |    9.578|
+Instruction<7> |LEDten<3>      |    9.822|
+Instruction<7> |LEDten<4>      |    9.020|
+Instruction<7> |LEDten<5>      |    9.550|
+Instruction<7> |LEDten<6>      |    9.973|
+Instruction<7> |LEDwrr<0>      |   10.289|
+Instruction<7> |LEDwrr<2>      |    9.864|
+Instruction<7> |LEDwrr<3>      |    9.842|
+Instruction<7> |LEDwrr<4>      |    8.534|
+Instruction<7> |LEDwrr<5>      |    9.255|
+Instruction<7> |LEDwrr<6>      |    8.057|
+Reset          |LED<0>         |   10.074|
+Reset          |LED<1>         |   10.974|
+Reset          |LED<2>         |   10.479|
+Reset          |LED<3>         |    9.835|
+Reset          |LED<4>         |   10.101|
+Reset          |LED<5>         |   10.472|
+Reset          |LED<6>         |   10.963|
+Reset          |LEDten<0>      |   11.739|
+Reset          |LEDten<1>      |   11.498|
+Reset          |LEDten<2>      |   11.492|
+Reset          |LEDten<3>      |   11.750|
+Reset          |LEDten<4>      |   10.924|
+Reset          |LEDten<5>      |   11.502|
+Reset          |LEDten<6>      |   11.925|
+Reset          |LEDwrr<0>      |    8.606|
+Reset          |LEDwrr<2>      |    8.460|
+Reset          |LEDwrr<3>      |    8.159|
+Reset          |LEDwrr<4>      |    8.194|
+Reset          |LEDwrr<5>      |    8.103|
+Reset          |LEDwrr<6>      |    8.471|
+---------------+---------------+---------+
+
+
+Analysis completed Wed Jun  7 20:58:10 2017 
+--------------------------------------------------------------------------------
+
+Trace Settings:
+-------------------------
+Trace Settings 
+
+Peak Memory Usage: 366 MB
+
+
+

@@ -1,0 +1,33 @@
+Release 14.7 - ngc2edif P.20131013 (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+Reading design MIPS.ngc ...
+WARNING:NetListWriters:298 - No output is written to MIPS.xncf, ignored.
+Processing design ...
+   Preping design's networks ...
+   Preping design's macros ...
+WARNING:NetListWriters:306 - Signal bus ALU_SrcB<7 : 0> on block MIPS is not
+   reconstructed, because there are some missing bus signals.
+WARNING:NetListWriters:306 - Signal bus Register/Read_Data1<7 : 1> on block MIPS
+   is not reconstructed, because there are some missing bus signals.
+  finished :Prep
+Writing EDIF netlist file MIPS.edif ...
+ngc2edif: Total memory usage is 105232 kilobytes
+
+Release 14.7 - ngc2edif P.20131013 (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+Reading design MIPS.ngc ...
+WARNING:NetListWriters:298 - No output is written to MIPS.xncf, ignored.
+Processing design ...
+   Preping design's networks ...
+   Preping design's macros ...
+WARNING:NetListWriters:305 - Port bus LEDs has a mismatched property name
+   LEDs_rnm0 on block MIPS.
+WARNING:NetListWriters:304 - Port bus LEDs<6 : 0> on block MIPS is not
+   reconstructed, because there are some missing bus pins.
+WARNING:NetListWriters:306 - Signal bus
+   Frequency_Demultiplier/Mcompar_cnt_cmp_ge0000_lut<10 : 0> on block MIPS is
+   not reconstructed, because there are some missing bus signals.
+  finished :Prep
+Writing EDIF netlist file MIPS.edif ...
+ngc2edif: Total memory usage is 105240 kilobytes
+

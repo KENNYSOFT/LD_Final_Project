@@ -19,18 +19,20 @@
 //
 //////////////////////////////////////////////////////////////////////////////////
 module alu(
+    input [2:0] state,
     input ALUOp,
     input [7:0] Data1,
     input [7:0] Data2,
     output reg [7:0] ALU_Result,
-    input Clear,
-    input Clk
+    input Clear
     );
 
 	always @(*) begin
 		if (Clear) ALU_Result <= 0;
-		else if (!ALUOp) ALU_Result <= 0;
-		else ALU_Result <= Data1 + Data2;
+		else if (state == 3'd2) begin
+			if (!ALUOp) ALU_Result <= 0;
+			else ALU_Result <= Data1 + Data2;
+		end
 	end
 	
 	initial begin

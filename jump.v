@@ -19,16 +19,15 @@
 //
 //////////////////////////////////////////////////////////////////////////////////
 module jump(
-    input [7:0] PC,
+    input [7:0] PC_Added,
     input [7:0] Sign_Extended_Instruction,
     output reg [7:0] Jump_Address,
-    input Clear,
-    input Clk
+    input Clear
     );
 
 	always @(*) begin
 		if (Clear) Jump_Address <= 0;
-		else Jump_Address <= PC + 1 + Sign_Extended_Instruction;
+		else Jump_Address <= PC_Added + Sign_Extended_Instruction;
 	end
 	
 	initial begin

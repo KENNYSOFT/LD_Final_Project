@@ -22,8 +22,7 @@ module dest(
     input RegDst,
     input [3:0] Instruction30,
     output reg [1:0] Write_Register,
-    input Clear,
-    input Clk
+    input Clear
     );
 
 	always @(*) begin

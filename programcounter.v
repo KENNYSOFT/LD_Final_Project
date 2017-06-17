@@ -25,7 +25,7 @@ module programcounter(
     input Clk
     );
 
-	always @(posedge Clk or posedge Clear) begin
+	always @(negedge Clk or posedge Clear) begin
 		if (Clear) PC <= 0;
 		else PC <= Next_PC;
 	end
