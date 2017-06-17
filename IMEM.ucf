@@ -1,0 +1,21 @@
+
+
+NET "Read_Address[0]" LOC = P97;
+NET "Read_Address[1]" LOC = P98;
+NET "Read_Address[2]" LOC = P99;
+NET "Read_Address[3]" LOC = P101;
+NET "Instruction[0]" LOC = P110;
+NET "Instruction[1]" LOC = P111;
+NET "Instruction[2]" LOC = P112;
+NET "Instruction[3]" LOC = P113;
+NET "Instruction[4]" LOC = P114;
+NET "Instruction[5]" LOC = P115;
+NET "Instruction[6]" LOC = P116;
+NET "Instruction[7]" LOC = P117;
+
+# PlanAhead Generated physical constraints 
+
+NET "Read_Address[4]" LOC = P102;
+NET "Read_Address[5]" LOC = P103;
+NET "Read_Address[6]" LOC = P104;
+NET "Read_Address[7]" LOC = P105;

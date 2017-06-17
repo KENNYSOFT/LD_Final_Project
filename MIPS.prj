@@ -1,0 +1,3 @@
+verilog work "DMEM.v"
+verilog work "decoder7seg.v"
+verilog work "MIPS.v"

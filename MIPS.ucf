@@ -1,0 +1,38 @@
+
+NET "Clk_O" LOC = P57;
+
+NET "Reset" LOC = P54;
+
+NET "LEDten[0]" LOC = P3;
+NET "LEDten[1]" LOC = P4;
+NET "LEDten[2]" LOC = P5;
+NET "LEDten[3]" LOC = P6;
+NET "LEDten[4]" LOC = P7;
+NET "LEDten[5]" LOC = P8;
+NET "LEDten[6]" LOC = P10;
+
+NET "LED[0]" LOC = P11;
+NET "LED[1]" LOC = P12;
+NET "LED[2]" LOC = P13;
+NET "LED[3]" LOC = P15;
+NET "LED[4]" LOC = P16;
+NET "LED[5]" LOC = P18;
+NET "LED[6]" LOC = P19;
+
+NET "Instruction[0]" LOC = P120;
+NET "Instruction[1]" LOC = P121;
+NET "Instruction[2]" LOC = P124;
+NET "Instruction[3]" LOC = P125;
+NET "Instruction[4]" LOC = P126;
+NET "Instruction[5]" LOC = P127;
+NET "Instruction[6]" LOC = P129;
+NET "Instruction[7]" LOC = P130;
+
+NET "PC[0]" LOC = P96;
+NET "PC[1]" LOC = P98;
+NET "PC[2]" LOC = P99;
+NET "PC[3]" LOC = P101;
+NET "PC[4]" LOC = P102;
+NET "PC[5]" LOC = P103;
+NET "PC[6]" LOC = P104;
+NET "PC[7]" LOC = P105;

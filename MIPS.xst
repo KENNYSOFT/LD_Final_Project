@@ -1,0 +1,5 @@
+set -tmpdir "/home/gimnamho/Desktop/Final_Project/xst/projnav.tmp"
+set -xsthdpdir "/home/gimnamho/Desktop/Final_Project/xst"
+elaborate
+-ifn MIPS.prj
+-ifmt mixed
