@@ -22,7 +22,7 @@ module MIPS_Test_v;
 	
 	IMEM instr_mem ( Instruction, PC );
 	
-	always #10 Clk_O = ~Clk_O;
+	always #1 Clk_O = ~Clk_O;
 
 	initial 
 	begin
@@ -35,6 +35,7 @@ module MIPS_Test_v;
 		
 		#200 Reset = 0;
 		
+		#1000000;
 		
 	end
       

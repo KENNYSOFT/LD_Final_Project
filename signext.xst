@@ -1,0 +1,5 @@
+set -tmpdir "/csehome/hm525/Final_Project/xst/projnav.tmp"
+set -xsthdpdir "/csehome/hm525/Final_Project/xst"
+elaborate
+-ifn signext.prj
+-ifmt mixed
