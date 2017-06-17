@@ -26,8 +26,8 @@ module signext(
     );
 
 	always @(posedge Clk or posedge Clear) begin
-		if (Clear) out = 0;
-		else out = {in[1], in[1], in[1], in[1], in[1], in[1], in};
+		if (Clear) out <= 0;
+		else out <= {in[1], in[1], in[1], in[1], in[1], in[1], in};
 	end
 
 endmodule

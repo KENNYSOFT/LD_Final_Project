@@ -79,14 +79,14 @@ LAB7:    xsi_set_current_line(31, ng0);
     memset(t13, 0, 8);
     xsi_vlog_unsigned_add(t13, 8, t3, 8, t4, 8);
     t2 = (t0 + 1928);
-    xsi_vlogvar_assign_value(t2, t13, 0, 0, 8);
+    xsi_vlogvar_wait_assign_value(t2, t13, 0, 0, 8, 0LL);
 
 LAB8:    goto LAB2;
 
 LAB6:    xsi_set_current_line(30, ng0);
     t11 = ((char*)((ng1)));
     t12 = (t0 + 1928);
-    xsi_vlogvar_assign_value(t12, t11, 0, 0, 8);
+    xsi_vlogvar_wait_assign_value(t12, t11, 0, 0, 8, 0LL);
     goto LAB8;
 
 }

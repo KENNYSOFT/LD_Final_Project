@@ -205,14 +205,14 @@ LAB7:    xsi_set_current_line(30, ng0);
     *((unsigned int *)t54) = t63;
     xsi_vlogtype_concat(t13, 8, 8, 7U, t56, 1, t46, 1, t36, 1, t26, 1, t16, 1, t14, 1, t3, 2);
     t64 = (t0 + 1768);
-    xsi_vlogvar_assign_value(t64, t13, 0, 0, 8);
+    xsi_vlogvar_wait_assign_value(t64, t13, 0, 0, 8, 0LL);
 
 LAB8:    goto LAB2;
 
 LAB6:    xsi_set_current_line(29, ng0);
     t11 = ((char*)((ng1)));
     t12 = (t0 + 1768);
-    xsi_vlogvar_assign_value(t12, t11, 0, 0, 8);
+    xsi_vlogvar_wait_assign_value(t12, t11, 0, 0, 8, 0LL);
     goto LAB8;
 
 }

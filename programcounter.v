@@ -26,8 +26,8 @@ module programcounter(
     );
 
 	always @(posedge Clk or posedge Clear) begin
-		if (Clear) PC = 0;
-		else PC = Next_PC;
+		if (Clear) PC <= 0;
+		else PC <= Next_PC;
 	end
 
 endmodule

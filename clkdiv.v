@@ -28,14 +28,14 @@ module clkdiv(
 	 
 	 always @(posedge CLK_IN or posedge clr) begin
 		if(cnt == 32'd100) begin
-			cnt = 0;
-			CLK_OUT = ~CLK_OUT;
+			cnt <= 0;
+			CLK_OUT <= ~CLK_OUT;
 		end else begin
-			cnt = cnt + 1;
+			cnt <= cnt + 1;
 		end
 		if(clr) begin
-			cnt = 32'd0;
-			CLK_OUT = 1'b0;
+			cnt <= 32'd0;
+			CLK_OUT <= 1'b0;
 		end
 		
 	 end

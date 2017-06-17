@@ -27,10 +27,10 @@ module dest(
     );
 
 	always @(posedge Clk or posedge Clear) begin
-		if (Clear) Write_Register = 0;
+		if (Clear) Write_Register <= 0;
 		else begin
-			if (RegDst) Write_Register = Instruction[1:0];
-			else Write_Register = Instruction[3:2];
+			if (RegDst) Write_Register <= Instruction[1:0];
+			else Write_Register <= Instruction[3:2];
 		end
 	end
 

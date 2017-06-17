@@ -27,8 +27,8 @@ module alu(
     );
 
 	always @(posedge Clk or posedge Clear) begin
-		if (Clear) Result = 0;
-		else Result = Data1 + Data2;
+		if (Clear) Result <= 0;
+		else Result <= Data1 + Data2;
 	end
 
 endmodule

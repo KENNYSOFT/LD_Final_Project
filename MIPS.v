@@ -34,22 +34,20 @@ module MIPS ( Clk_O, Reset, Instruction, PC, LED, LEDten);
 	wire[7:0]	Read_Data;
 	
 	// fdemultiplier (make 1s)
-	clkdiv Frequency_Demultiplier(.CLK_IN(Clk_O), .clr(Reset), .CLK_OUT(Clk));
+	clkdiv Frequency_Demultiplier(.CLK_IN(~Clk_O), .clr(Reset), .CLK_OUT(Clk));
 	
 	// Program_Counter			
-	programcounter Program_Counter(.PC(PC), .Next_PC(Next_PC), .Clear(Reset), .Clk(Clk));
+	programcounter Program_Counter(.PC(PC), .Next_PC(Branch ? Jump_Address : Next_PC), .Clear(Reset), .Clk(~Clk));
+	nextpc Calc_Next(.PC(PC), .Next_PC(Next_PC), .Clear(Reset), .Clk(Clk_O));
 	
 	// Instruction_Memory
 	//IMEM Instruction_Memory(.Instruction(Instruction), .Read_Address(PC));
 	
 	// Sign Extension
-	signext SignExtension(.in(Instruction[1:0]), .out(Sign_Extended_Instruction), .Clear(Reset), .Clk(Clk_O));
+	signext Sign_Extension(.in(Instruction[1:0]), .out(Sign_Extended_Instruction), .Clear(Reset), .Clk(Clk_O));
 	
 	// Registers
 	dest Destination(.RegDst(RegDst), .Instruction(Instruction), .Write_Register(Write_Register), .Clear(Reset), .Clk(Clk_O));
-	
-	reg[7:0] Write_Data;
-	assign Reg_Write_Data = Write_Data;
 	
 	reg[7:0] Source_Data1;
 	assign Read_Data1 = Source_Data1;
@@ -57,25 +55,50 @@ module MIPS ( Clk_O, Reset, Instruction, PC, LED, LEDten);
 	reg[7:0] Source_Data2;
 	assign Read_Data2 = Source_Data2;
 	
+	reg[7:0] Write_Data;
+	assign Reg_Write_Data = Write_Data;
+	
 	reg[7:0]	Registers[3:0];
 	always @(posedge Clk_O or posedge Reset) begin
-		if (Reset) begin Registers[0] = 0; Registers[1] = 0; Registers[2] = 0; Registers[3] = 0; end
+		if (Reset) begin Registers[0] <= 0; Registers[1] <= 0; Registers[2] <= 0; Registers[3] <= 0; end
 		else begin
-			Source_Data1 = Registers[Instruction[5:4]];
-			Source_Data2 = Registers[Instruction[3:2]];
-			Write_Data = (MemtoReg ? Read_Data2 : ALU_Result);
-			if (RegWrite) Registers[Write_Register] = Write_Data;
+			Source_Data1 <= Registers[Instruction[5:4]];
+			Source_Data2 <= Registers[Instruction[3:2]];
+			Write_Data <= (MemtoReg ? Read_Data : ALU_Result);
+			if (RegWrite) Registers[Write_Register] <= Write_Data;
 		end
 	end
 	
+	initial begin
+		Source_Data1 <= 0;
+		Source_Data2 <= 0;
+		Write_Data <= 0;
+	end
+	
 	// Control Logic
-	control Control(.in(Instruction[7:6]), .RegDst(RegDst), .RegWrite(RegWrite), .ALUSrc(ALUSrc), .Branch(Branch), .MemRead(MemRead), .MemWrite(MemWrite), .MemtoReg(MemtoReg), .ALUOp(ALUOp), .Clear(Reset), .Clk(Clk_O));
+	//control Control(.in(Instruction[7:6]), .RegDst(RegDst), .RegWrite(RegWrite), .ALUSrc(ALUSrc), .Branch(Branch), .MemRead(MemRead), .MemWrite(MemWrite), .MemtoReg(MemtoReg), .ALUOp(ALUOp), .Clear(Reset), .Clk(Clk_O));
+	assign RegDst = ~Instruction[6];
+	assign RegWrite = ~Instruction[7];
+	assign ALUSrc = Instruction[7] ^ Instruction[6];
+	assign Branch = Instruction[7] & Instruction[6];
+	assign MemRead = ~Instruction[7] & Instruction[6];
+	assign MemWrite = Instruction[7] & ~Instruction[6];
+	assign MemtoReg = Instruction[6];
+	assign ALUOp = ~Instruction[7] & ~Instruction[6];
 	
 	// Jump Address
-	nextpc Jump(.Branch(Branch), .PC(PC), .Sign_Extended_Instruction(Sign_Extended_Instruction), .Next_PC(Next_PC), .Clear(Reset), .Clk(Clk_O));
+	jump Calc_Jump(.PC(PC), .Sign_Extended_Instruction(Sign_Extended_Instruction), .Jump_Address(Jump_Address), .Clear(Reset), .Clk(Clk_O));
 	
 	// ALU					  
-	alu ALU(.Data1(Read_Data1), .Data2(ALUSrc ? Sign_Extended_Instruction : Read_Data2), .Result(ALU_Result), .Clear(Reset), .Clk(Clk_O));
+	reg[7:0] ALU_SrcB_Reg;
+	assign ALU_SrcB = ALU_SrcB_Reg;
+	
+	always @(*) begin
+		if (ALUSrc) ALU_SrcB_Reg <= Sign_Extended_Instruction;
+		else ALU_SrcB_Reg <= Read_Data2;
+	end
+	//alu ALU(.Data1(Read_Data1), .Data2(ALUSrc ? Sign_Extended_Instruction : Read_Data2), .Result(ALU_Result), .Clear(Reset), .Clk(Clk_O));
+	alu ALU(.Data1(Read_Data1), .Data2(ALU_SrcB), .Result(ALU_Result), .Clear(Reset), .Clk(Clk_O));
 	
 	// Data Memory
 	DMEM Data_Memory ( .Read_Data(Read_Data), .Write_Data(Read_Data2), .Address(ALU_Result), .MemRead(MemRead), .MemWrite(MemWrite), .Clear(Reset), .Clk(Clk_O) );

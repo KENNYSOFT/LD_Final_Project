@@ -6,10 +6,10 @@ Determining compilation order of HDL files
 Analyzing Verilog file "/csehome/hm525/Final_Project/signext.v" into library work
 Analyzing Verilog file "/csehome/hm525/Final_Project/programcounter.v" into library work
 Analyzing Verilog file "/csehome/hm525/Final_Project/nextpc.v" into library work
+Analyzing Verilog file "/csehome/hm525/Final_Project/jump.v" into library work
 Analyzing Verilog file "/csehome/hm525/Final_Project/DMEM.v" into library work
 Analyzing Verilog file "/csehome/hm525/Final_Project/dest.v" into library work
 Analyzing Verilog file "/csehome/hm525/Final_Project/decoder7seg.v" into library work
-Analyzing Verilog file "/csehome/hm525/Final_Project/control.v" into library work
 Analyzing Verilog file "/csehome/hm525/Final_Project/clkdiv.v" into library work
 Analyzing Verilog file "/csehome/hm525/Final_Project/alu.v" into library work
 Analyzing Verilog file "/csehome/hm525/Final_Project/MIPS.v" into library work
@@ -20,13 +20,13 @@ Starting static elaboration
 WARNING:HDLCompiler:1016 - "/csehome/hm525/Final_Project/MIPS_TEST.v" Line 15: Port LEDten is not connected to this instance
 Completed static elaboration
 Fuse Memory Usage: 94800 KB
-Fuse CPU Usage: 790 ms
+Fuse CPU Usage: 830 ms
 Compiling module clkdiv
 Compiling module programcounter
+Compiling module nextpc
 Compiling module signext
 Compiling module dest
-Compiling module control
-Compiling module nextpc
+Compiling module jump
 Compiling module alu
 Compiling module DMEM
 Compiling module decoder7seg
@@ -35,8 +35,9 @@ Compiling module IMEM
 Compiling module MIPS_Test_v
 Compiling module glbl
 Time Resolution for simulation is 1ps.
+Waiting for 1 sub-compilation(s) to finish...
 Compiled 13 Verilog Units
 Built simulation executable /csehome/hm525/Final_Project/MIPS_Test_v_isim_beh.exe
-Fuse Memory Usage: 1179256 KB
-Fuse CPU Usage: 840 ms
-GCC CPU Usage: 560 ms
+Fuse Memory Usage: 1179396 KB
+Fuse CPU Usage: 860 ms
+GCC CPU Usage: 620 ms
