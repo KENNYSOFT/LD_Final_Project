@@ -1,8 +1,8 @@
 `timescale 1ns / 1ps
 
 module MIPS_Test_v(
-	input Clk_O,
-	input Reset,
+	//input Clk_O,
+	//input Reset,
 	output[6:0]	LED,
 	output[6:0]	LEDten,
 	output[6:0]	LEDPC,
@@ -11,8 +11,8 @@ module MIPS_Test_v(
 	output[6:0]	LEDwrr,
 	output[3:0] LEDs);
 	
-	//reg Clk_O;
-	//reg Reset;
+	reg Clk_O;
+	reg Reset;
 	
 	// Outputs
 	wire [7:0] Instruction;
@@ -35,7 +35,7 @@ module MIPS_Test_v(
 	
 	IMEM instr_mem ( Instruction, PC );
 	
-	/*always #1 Clk_O = ~Clk_O;
+	always #1 Clk_O = ~Clk_O;
 
 	initial 
 	begin
@@ -50,7 +50,7 @@ module MIPS_Test_v(
 		
 		#1000000;
 		
-	end*/
+	end
       
 endmodule
 

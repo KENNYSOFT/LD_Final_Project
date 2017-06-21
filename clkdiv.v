@@ -31,8 +31,8 @@ module clkdiv(
 			cnt <= 0;
 			Clk <= 0;
 		end
-		//else if (cnt >= 25'd99) begin
-		else if (cnt >= 25'd24999999) begin
+		else if (cnt >= 25'd99) begin
+		//else if (cnt >= 25'd24999999) begin
 			cnt <= 0;
 			Clk <= ~Clk;
 		end

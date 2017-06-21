@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2017-06-12T17:18:04</DateModified>
-  <ModuleName>MIPS_Test_v</ModuleName>
+  <DateModified>2017-06-21T17:24:42</DateModified>
+  <ModuleName>MIPS</ModuleName>
   <SummaryTimeStamp>2017-06-12T17:16:12</SummaryTimeStamp>
   <SavedFilePath>/csehome/hm525/Final_Project/iseconfig/MIPS.xreport</SavedFilePath>
   <ImplementationReportsDirectory>/csehome/hm525/Final_Project/</ImplementationReportsDirectory>

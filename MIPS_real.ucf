@@ -1,0 +1,75 @@
+
+NET "Clk_O" LOC = P57;
+
+NET "Reset" LOC = P54;
+
+NET "LEDPCten[0]" LOC = P20;
+NET "LEDPCten[1]" LOC = P21;
+NET "LEDPCten[2]" LOC = P24;
+NET "LEDPCten[3]" LOC = P25;
+NET "LEDPCten[4]" LOC = P27;
+NET "LEDPCten[5]" LOC = P28;
+NET "LEDPCten[6]" LOC = P29;
+
+NET "LEDPC[0]" LOC = P55;
+NET "LEDPC[1]" LOC = P58;
+NET "LEDPC[2]" LOC = P59;
+NET "LEDPC[3]" LOC = P60;
+NET "LEDPC[4]" LOC = P62;
+NET "LEDPC[5]" LOC = P63;
+NET "LEDPC[6]" LOC = P64;
+
+NET "LEDs[0]" LOC = P87;
+NET "LEDs[1]" LOC = P88;
+NET "LEDs[2]" LOC = P90;
+NET "LEDs[3]" LOC = P91;
+
+NET "LEDSC[0]" LOC = P68;
+NET "LEDSC[1]" LOC = P69;
+NET "LEDSC[2]" LOC = P70;
+NET "LEDSC[3]" LOC = P71;
+NET "LEDSC[4]" LOC = P72;
+NET "LEDSC[5]" LOC = P75;
+NET "LEDSC[6]" LOC = P76;
+
+NET "LEDwrr[0]" LOC = P77;
+NET "LEDwrr[1]" LOC = P78;
+NET "LEDwrr[2]" LOC = P79;
+NET "LEDwrr[3]" LOC = P82;
+NET "LEDwrr[4]" LOC = P83;
+NET "LEDwrr[5]" LOC = P84;
+NET "LEDwrr[6]" LOC = P85;
+
+NET "LEDten[0]" LOC = P3;
+NET "LEDten[1]" LOC = P4;
+NET "LEDten[2]" LOC = P5;
+NET "LEDten[3]" LOC = P6;
+NET "LEDten[4]" LOC = P7;
+NET "LEDten[5]" LOC = P8;
+NET "LEDten[6]" LOC = P10;
+
+NET "LED[0]" LOC = P11;
+NET "LED[1]" LOC = P12;
+NET "LED[2]" LOC = P13;
+NET "LED[3]" LOC = P15;
+NET "LED[4]" LOC = P16;
+NET "LED[5]" LOC = P18;
+NET "LED[6]" LOC = P19;
+
+NET "Instruction[0]" LOC = P120;
+NET "Instruction[1]" LOC = P121;
+NET "Instruction[2]" LOC = P124;
+NET "Instruction[3]" LOC = P125;
+NET "Instruction[4]" LOC = P126;
+NET "Instruction[5]" LOC = P127;
+NET "Instruction[6]" LOC = P129;
+NET "Instruction[7]" LOC = P130;
+
+NET "PC[0]" LOC = P96;
+NET "PC[1]" LOC = P98;
+NET "PC[2]" LOC = P99;
+NET "PC[3]" LOC = P101;
+NET "PC[4]" LOC = P102;
+NET "PC[5]" LOC = P103;
+NET "PC[6]" LOC = P104;
+NET "PC[7]" LOC = P105;

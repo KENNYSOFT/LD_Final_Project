@@ -20,8 +20,8 @@ Analyzing Verilog file "/csehome/hm525/Final_Project/MIPS_TEST.v" into library w
 Analyzing Verilog file "/opt/Xilinx/14.7/ISE_DS/ISE//verilog/src/glbl.v" into library work
 Starting static elaboration
 Completed static elaboration
-Fuse Memory Usage: 94800 KB
-Fuse CPU Usage: 770 ms
+Fuse Memory Usage: 94804 KB
+Fuse CPU Usage: 760 ms
 Compiling module clkdiv
 Compiling module mux
 Compiling module programcounter
@@ -40,6 +40,6 @@ Compiling module glbl
 Time Resolution for simulation is 1ps.
 Compiled 15 Verilog Units
 Built simulation executable /csehome/hm525/Final_Project/MIPS_Test_v_isim_beh.exe
-Fuse Memory Usage: 1179460 KB
+Fuse Memory Usage: 1179452 KB
 Fuse CPU Usage: 800 ms
-GCC CPU Usage: 700 ms
+GCC CPU Usage: 670 ms

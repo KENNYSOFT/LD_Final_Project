@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="/csehome/hm525/Final_Project/MIPS_Test_v_isim_beh.wdb" id="1" type="auto">
+         <top_modules>
+            <top_module name="MIPS_Test_v" />
+            <top_module name="glbl" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="29" />
+   <wvobject fp_name="/MIPS_Test_v/MIPS_student/Clk_O" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">Clk_O</obj_property>
+      <obj_property name="ObjectShortName">Clk_O</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MIPS_Test_v/MIPS_student/Reset" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">Reset</obj_property>
+      <obj_property name="ObjectShortName">Reset</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MIPS_Test_v/MIPS_student/Instruction" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">Instruction[7:0]</obj_property>
+      <obj_property name="ObjectShortName">Instruction[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MIPS_Test_v/MIPS_student/PC" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">PC[7:0]</obj_property>
+      <obj_property name="ObjectShortName">PC[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MIPS_Test_v/MIPS_student/Clk" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">Clk</obj_property>
+      <obj_property name="ObjectShortName">Clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MIPS_Test_v/MIPS_student/Next_PC" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">Next_PC[7:0]</obj_property>
+      <obj_property name="ObjectShortName">Next_PC[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MIPS_Test_v/MIPS_student/Sign_Extended_Instruction" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">Sign_Extended_Instruction[7:0]</obj_property>
+      <obj_property name="ObjectShortName">Sign_Extended_Instruction[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MIPS_Test_v/MIPS_student/Read_Data1" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">Read_Data1[7:0]</obj_property>
+      <obj_property name="ObjectShortName">Read_Data1[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MIPS_Test_v/MIPS_student/Read_Data2" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">Read_Data2[7:0]</obj_property>
+      <obj_property name="ObjectShortName">Read_Data2[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MIPS_Test_v/MIPS_student/Reg_Write_Data" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">Reg_Write_Data[7:0]</obj_property>
+      <obj_property name="ObjectShortName">Reg_Write_Data[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MIPS_Test_v/MIPS_student/Write_Register" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">Write_Register[1:0]</obj_property>
+      <obj_property name="ObjectShortName">Write_Register[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MIPS_Test_v/MIPS_student/RegWrite" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">RegWrite</obj_property>
+      <obj_property name="ObjectShortName">RegWrite</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MIPS_Test_v/MIPS_student/MemtoReg" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">MemtoReg</obj_property>
+      <obj_property name="ObjectShortName">MemtoReg</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MIPS_Test_v/MIPS_student/Branch" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">Branch</obj_property>
+      <obj_property name="ObjectShortName">Branch</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MIPS_Test_v/MIPS_student/MemRead" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">MemRead</obj_property>
+      <obj_property name="ObjectShortName">MemRead</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MIPS_Test_v/MIPS_student/MemWrite" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">MemWrite</obj_property>
+      <obj_property name="ObjectShortName">MemWrite</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MIPS_Test_v/MIPS_student/RegDst" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">RegDst</obj_property>
+      <obj_property name="ObjectShortName">RegDst</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MIPS_Test_v/MIPS_student/ALUSrc" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">ALUSrc</obj_property>
+      <obj_property name="ObjectShortName">ALUSrc</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MIPS_Test_v/MIPS_student/ALUOp" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">ALUOp</obj_property>
+      <obj_property name="ObjectShortName">ALUOp</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MIPS_Test_v/MIPS_student/ALU_SrcB" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">ALU_SrcB[7:0]</obj_property>
+      <obj_property name="ObjectShortName">ALU_SrcB[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MIPS_Test_v/MIPS_student/ALU_Result" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">ALU_Result[7:0]</obj_property>
+      <obj_property name="ObjectShortName">ALU_Result[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MIPS_Test_v/MIPS_student/Jump_Address" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">Jump_Address[7:0]</obj_property>
+      <obj_property name="ObjectShortName">Jump_Address[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MIPS_Test_v/MIPS_student/Read_Data" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">Read_Data[7:0]</obj_property>
+      <obj_property name="ObjectShortName">Read_Data[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MIPS_Test_v/MIPS_student/current_state" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">current_state[2:0]</obj_property>
+      <obj_property name="ObjectShortName">current_state[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MIPS_Test_v/MIPS_student/Register/s0" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">s0[7:0]</obj_property>
+      <obj_property name="ObjectShortName">s0[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MIPS_Test_v/MIPS_student/Register/s1" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">s1[7:0]</obj_property>
+      <obj_property name="ObjectShortName">s1[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MIPS_Test_v/MIPS_student/Register/s2" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">s2[7:0]</obj_property>
+      <obj_property name="ObjectShortName">s2[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MIPS_Test_v/MIPS_student/Register/s3" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">s3[7:0]</obj_property>
+      <obj_property name="ObjectShortName">s3[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/MIPS_Test_v/MIPS_student/Data_Memory/MemByte[0]" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">[0,7:0]</obj_property>
+      <obj_property name="ObjectShortName">MemByte[0,7:0]</obj_property>
+   </wvobject>
+</wave_config>
